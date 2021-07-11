@@ -1,0 +1,1864 @@
+﻿
+/* 01.全css共通：20行目から*/
+/* 02a.IE（xxxpc.css）共通：342行目から*/
+/* 02b.スマートフォン以外（xxxpc.css，xxxpcanother.css）：441行目から*/
+/* 02c.top（topxxx.css）共通：485行目から*/
+/* 03.このcssのみ：1164行目から*/
+/* 04.最下部に置くもの（全css共通）：1319行目から，上部にするとスタイルが崩れる場合あり*/
+
+
+body {
+ background-image: url(img/bg22.jpg);
+ font-size:95%;
+ line-height:150%;
+ text-align:center;
+ color:#333333;
+ margin:5px 5px 5px 30px; /* 上右下左 */
+ width:1200px; 
+
+}
+
+
+
+/* ==================================================================================================== 01.全css共通設定*/
+
+/* 全ての要素の間隔・余白を０へ */
+* {
+ margin:0;
+ padding:0;
+}
+
+p,#contents li,dl,dd { line-height:160%; } /* 文章の行間を指定 */
+
+p { margin:0px 0em 1.5em 3px; }
+
+ul,ol,dl { margin:0em 1em 1em 2em; }
+
+.contentswrap { margin:0px; } /* 間隔・余白調整用 */
+
+
+/* ページ外枠 */
+
+
+
+/* ヘッダー */
+#header {
+ margin:0px;
+ border-top:1px solid #ffffff;
+ color:#000000;
+ background-color:#ffffff; 
+}
+
+
+/* ページの本文 */
+#image-area {
+
+ margin: 5px 0px 0px 0px; /* 上右下左 */
+
+}
+
+table.image {
+    border: none;
+   
+ td {
+    border: none;}
+ tr {
+    border: none;}
+  
+
+
+}
+
+
+#map_canvas {
+
+width:680px; 
+height:650px
+position: relative;
+padding-bottom: 75%; 
+// これが縦横比
+height: 0;
+overflow: hidden;
+top: 0;
+left: 0;
+
+
+}
+
+
+#loading {
+	width: 96px; /* gif画像の幅 */
+	height: 96px; /* gif画像の高さ */
+	margin: -68px 0 0 -68px; /* gif画像を画面中央に */
+	padding: 20px; /* gif画像を大きく */
+	background: #BABABA; /* gif画像の背景色 */
+	opacity: 0.5; /* 透過させる */
+	border-radius: 15px; /* 丸角 */
+	position: fixed; /* gif画像をスクロールさせない */
+	left: 50%; /* gif画像を画面横中央へ */
+	top: 50%; /* gif画像を画面縦中央へ */
+}
+
+
+.trim-image-to-circle {
+
+background-image: url("../image/landmark/ninnaji1.jpg"); /* 表示する画像 */
+width: 120px; /* ※縦横を同値に */
+height: 120px; /* ※縦横を同値に */
+border-radius: 50%; /* 角丸半径を50%にする(=円形にする) */
+background-position: center center; /* 横長画像の左上を基準に表示 */
+display: none; /* 複数の画像を横に並べたい場合 */
+
+margin: 10px 3px 0px 3px; /* 上右下左 */
+
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: aliased;
+}
+
+header nav {
+	text-align: center;
+	background: #efefef;
+}
+header nav ul {
+	margin: 0;
+	padding: 1em;
+	list-style-type: none;
+}
+header nav ul li {
+	display: inline;
+	margin-left: 1em;
+}
+header nav ul li:first-child {
+	margin-left: 0;
+}
+header nav ul li ul {
+	display: none;
+}
+a {
+	color: #f77564;
+}
+a:hover {
+	color: #333;
+}
+a, a:hover {
+	-o-transition: color 0.25s ease-in;
+	-webkit-transition: color 0.25s ease-in;
+	-moz-transition: color 0.25s ease-in;
+	transition: color 0.25s ease-in;
+}
+section, article, header {
+	display: block;
+	float: left;
+	width: 100%;
+}
+article {
+	width: 96%;
+	padding: 3em 2%;
+}
+
+
+.modal-window .modal-inner {
+
+width: 500px;
+
+}
+
+
+
+img.img1 {
+ margin: 10px 3px 0px 3px; /* 上右下左 */
+ border-style:none;
+
+}
+
+
+/* イメージの枠消去 */
+img.type3 {
+ margin:0em 0em 0em 0.5em;
+ border-style:none;
+ width:70px;
+ height:35px;
+ text-align:bottom;
+}
+
+
+/* フッター */
+#footer {
+ font-family: 'メイリオ',Meiryo,"Lucida Grande", "segoe UI", "ヒラギノ角ゴ ProN W3","serif"; 
+ padding:5px 0px;
+ border-top:3px solid #bcb7eb;
+ font-size:0.9em; 
+ text-align:left;
+ letter-spacing:0.1em; 
+ background-color:#ffffff;
+}
+
+
+/* そのほか個別設定 */
+.title{
+ padding:7px 5px 5px 10px;
+ margin:10px 30px 10px 20px;
+ text-align:center;
+ border-left:10px solid #F4CC0B;; 
+ border-radius:0px 0px 15px 0px; 
+ position:relative;
+ z-index:1;
+ font-size:24px;
+ font-weight:bold;
+ color:#FFFFFF;
+ background-color:#0B7A8E;
+}
+
+table{
+ margin:5px 0px 0px 5px;
+ width:100%;
+ border-top:1px solid #663300;
+ border-left:1px solid #663300;
+ border-collapse:collapse;
+ text-align:left;
+
+}
+
+table th{ 
+
+
+ text-align:center;
+ border-right:1px solid #663300;
+ border-bottom:1px solid #663300;
+
+
+ }
+
+table td{
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:center;
+ font-size:1.0em;
+ letter-spacing:1px;
+ text-indent:1px;
+ padding:1px 5px;
+ margin:0px;
+ border-right:1px solid #663300;
+ border-bottom:1px solid #663300;
+
+}
+
+
+table caption{
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:center;
+ font-size:1.2em;
+ letter-spacing:1px;
+ text-indent:1px;
+ padding:1px 5px;
+ margin:0px;
+
+
+}
+
+.textarea {
+border:0;
+padding:5px;
+font-size:1.2em;
+font-family:Arial, sans-serif;
+color:#aaa;
+border:solid 1px #ccc;
+margin:0 0 0px;
+width:68%;
+-moz-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+
+
+}
+
+
+
+/* ==================================================================================================== 02a.IE共通*/
+/* ==================================================================================================== 02a.IE共通*/
+
+/* ページの本文 */
+#main-right {
+
+  float:right;
+ 
+ width: 500px;
+ margin: 10px 3px 0px 0px; /* 上右下左 */
+ background-image: url(img/bg19.jpg);
+
+@media (max-width:767px) {width:100%;}
+
+}
+
+
+
+/* ページの本文 */
+#main-left {
+ float:left;
+
+ width: 680px;
+ margin: 10px 3px 0px 0px; /* 上右下左 */
+
+
+}
+
+
+
+
+/* メイン要素（ＩＤ）での文字（h1～h4）の内容 */
+h1 {
+
+
+   color: #ffffff; /* 文字の色 */
+   background-color : #6666cc; /* 背景の色 */
+   border-style: double; /* 枠の種類 */
+   border-color: #0000ff; /* 枠の色 */
+   border-width: 4px; /* 枠の幅 */
+   line-height: 120%; /* 行の高さ */
+   text-align: center; /* テキストの配置 */
+
+
+}
+
+
+h2 {
+
+ padding:5px 0px 3px 5px;
+ text-align:center;
+ margin:0px 20px;
+ border-left:10px solid #F4CC0B;
+ font-size:1.5em;
+ background-color:#F6F6F6;
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;
+ color:#4705B0;
+ background-color: #ffffff;
+}
+
+h3{
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;
+    position: relative;
+    margin: 0 0 0.5em;
+    padding: 0.4em 0.4em 0.4em 4.0em;
+    font-size: 1.25em;
+    font-weight: bold;
+    text-intent:5px; 
+    letter-spacing:5px; 
+    color: #fff;
+    background: #333333;
+    z-index: 1;
+}
+ 
+h3:before{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-right: #fff solid 2px;
+    background: #B92A2C;
+    background-image: -webkit-gradient(linear, left top, left bottom,
+            from(            rgba(255, 255, 255, 0.0)), 
+            color-stop(0.20, rgba(255, 255, 255, 0.0)), 
+            color-stop(0.20, rgba(255, 255, 255, 0.1)), 
+            color-stop(0.40, rgba(255, 255, 255, 0.1)), 
+            color-stop(0.40, rgba(255, 255, 255, 0.3)), 
+            color-stop(0.60, rgba(255, 255, 255, 0.3)), 
+            color-stop(0.60, rgba(255, 255, 255, 0.5)), 
+            color-stop(0.80, rgba(255, 255, 255, 0.5)), 
+            color-stop(0.80, rgba(255, 255, 255, 0.6)), 
+            to(              rgba(255, 255, 255, 0.6))
+            );
+    background-image: -webkit-linear-gradient(top,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: -moz-linear-gradient(top,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: -o-linear-gradient(top,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: linear-gradient(to bottom,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+            z-index:-1;
+}
+ 
+h3:after{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background-image: -webkit-gradient(linear, left top, right top,
+            from(            rgba(255, 255, 255, 0.0)), 
+            color-stop(0.20, rgba(255, 255, 255, 0.0)), 
+            color-stop(0.20, rgba(255, 255, 255, 0.1)), 
+            color-stop(0.40, rgba(255, 255, 255, 0.1)), 
+            color-stop(0.40, rgba(255, 255, 255, 0.3)), 
+            color-stop(0.60, rgba(255, 255, 255, 0.3)), 
+            color-stop(0.60, rgba(255, 255, 255, 0.5)), 
+            color-stop(0.80, rgba(255, 255, 255, 0.5)), 
+            color-stop(0.80, rgba(255, 255, 255, 0.6)), 
+            to(              rgba(255, 255, 255, 0.6))
+            );
+    background-image: -webkit-linear-gradient(left,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: -moz-linear-gradient(left,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: -o-linear-gradient(left,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: linear-gradient(to right,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+            z-index:-1;
+}
+
+#titlearea5 {
+
+border-bottom: 1px solid #9999ff;
+border-left: 10px solid #9999ff;
+text-align: left;
+background-color: #fff;
+font-size: 16px;
+color: #000;
+margin: 10px;
+padding: 2px 2px 2px 15px;
+ font-family: "ＭＳ 明朝",serif; 
+ background-color: #ffffff;
+
+}
+
+
+#titlearea3 {
+
+border-bottom: 1px solid #9999ff;
+border-left: 10px solid #9999ff;
+text-align: left;
+background-color: #fff;
+font-size: 16px;
+color: #000;
+margin: 10px;
+padding: 2px 2px 2px 15px;
+ font-family: "ＭＳ 明朝",serif; 
+ background-color: #ffffff;
+
+}
+
+h4{
+margin: 0 0 1.5em;
+padding: 0.8em;
+font-size: 1.143em;
+font-weight: bold;
+border-top: 1px dashed #aaa;
+border-bottom: 1px dashed #aaa;
+background: #eee;
+text-shadow: 1px 1px 0 rgba(255,255,255,1);
+box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+-moz-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+-webkit-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+-o-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+-ms-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+}
+
+h5{
+    position: relative;
+    font-family: 'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3',"ＭＳ 明朝",sans-serif;
+    color: #111;
+    font-size: 1.143em;
+    font-weight: bold;
+    margin: 0 0 1.5em;
+    padding: 0.5em 0.6em 0.5em 1.7em;
+    border-bottom: 3px solid #B92A2C;
+}
+ 
+h5:before{
+    content: "";
+    position: absolute;
+    background: #d48789;
+    top: 0;
+    left: 0.4em;
+    height: 12px;
+    width: 12px;
+    transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+}
+ 
+h5:after{
+    content: "";
+    position: absolute;
+    background:#d26466;
+    top: 1.0em;
+    left: 0;
+    height: 8px;
+    width: 8px;
+    transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    -o-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+}
+
+#heading06{
+
+	    position:relative;
+
+	    margin:0 4px 0 5px;
+
+	    padding:4px 10px 0px 6px;
+
+	    font:normal 24px/1.3 serif;
+
+	    color:#009;
+
+	    background:#ffc;
+
+	    box-shadow:
+
+	        12px 0 0 0 #ffc,
+
+	        0 12px 0 0 #ffc,
+
+	        1px 15px 4px -3px rgba(0,0,0,0.2);
+
+	}
+
+	#heading06:before{
+
+    content:" ";
+
+	    position:absolute;
+
+	    top:100%;
+
+	    left:100%;
+
+	    width:0;
+
+	    height:0;
+
+	    border-width:12px 12px 0 0;
+
+	    border-style:solid;
+
+	    border-color:transparent;
+
+	    border-top-color:#cc9;
+
+	}
+
+	#heading06:after{
+
+	    content:" ";
+
+	    position:absolute;
+
+	    padding:0 10px;
+
+	    bottom:0;
+
+	    left:10px;
+
+	    width:120px;
+
+	    height:20px;
+
+	    background:rgba(255,182,182,0.4);
+
+	    -webkit-transform: rotate(-1deg);
+
+	    -moz-transform: rotate(-1deg);
+
+	    -o-transform: rotate(-1deg);
+
+	    transform: rotate(-1deg);
+
+	}
+
+
+table.type6 {
+ margin :5px 3px;
+ padding :0px 0px;
+ border-top:1px solid #663300;
+ border-left:1px solid #663300;
+ border-collapse:collapse;
+ text-indent: 0px;
+ text-align:left;
+ width:99%; 
+ border-spacing:0;
+ background-color:#ffffff;
+ empty-cells:show;
+}
+
+#noborder{
+border-collapse: collapse;
+border: none;
+background: #ccc;
+}
+#noborder th{
+padding: 10px;
+background: #ff9;
+}
+#noborder td{
+padding: 10px 20px;
+background-image: url(img/bg22.jpg);
+border: none;
+}
+
+table.type6 caption{
+
+
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+
+ font-size:1.0em;
+ font-weight:bold; 
+
+ padding:0px 0px 0px 0px;/* 上右下左 */
+
+ color:#2f4f4f;
+
+}
+
+
+.type6 th{
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:left;
+ font-size:0.8em;
+ border-right:1px solid #663300;
+ border-bottom:1px dashed #663300;
+ color:#330000;
+ background-color:#E6E6FA;
+ padding:0.3em 1.7em;
+ text-align:left;
+}
+
+
+
+.type6 td {
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:left;
+ font-size:0.8em; 
+ border-right:1px solid #663300;
+ border-bottom:1px solid #663300;
+ padding:0.1em 1.7em;
+ text-indent: 0px;
+
+}
+
+.kbn {
+ text-align:left;
+ font-size:12pt;
+ text-indent:1em;
+ background-color:#e3f7e6;
+ border-bottom:1px dashed #663300;
+ border-right:1px dashed #663300;
+}
+
+
+.kbn2 {
+ text-align:left;
+ font-size:12pt;
+ text-indent:1em;
+ background-color:#dda0dd;
+ border-bottom:1px dashed #663300;
+ border-right:1px dashed #663300;
+}
+.type6 td.c { padding:0.1em 0.3em; }
+.type6 td.d {
+ font-size:1.3em;
+ font-weight:bold; 
+ background-color:#ccccff;  
+ padding:0.1em 0.3em;
+}
+
+
+
+table td.line3 {
+
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:left;
+ font-weight:normal; 
+ background-color:#ffffff;  
+ border-bottom:1px dashed #663300;
+ padding:1px 5px 1px 5px;/* 上右下左 */
+
+
+}
+
+
+table td.line4 {
+
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:right;
+ font-weight:normal; 
+ background-color:#ffffff;  
+ border-bottom:1px dashed #663300;
+ padding:1px 5px 1px 5px;/* 上右下左 */
+
+
+}
+
+
+@media screen and (max-device-width:780px) {
+
+
+
+
+#loading {
+	width: 130px; /* gif画像の幅 */
+	height: 130px; /* gif画像の高さ */
+	margin: 10px 0 0 -68px; /* gif画像を画面中央に */
+	padding: 20px; /* gif画像を大きく */
+	background: #BABABA; /* gif画像の背景色 */
+	opacity: 0.5; /* 透過させる */
+	border-radius: 15px; /* 丸角 */
+	position: fixed; /* gif画像をスクロールさせない */
+	left: 50%; /* gif画像を画面横中央へ */
+	top: 50%; /* gif画像を画面縦中央へ */
+}
+
+
+
+body {
+ background-image: url(img/bg22.jpg);
+ font-size:95%;
+ line-height:150%;
+ text-align:center;
+ color:#333333;
+ margin:5px;
+ width:96%; 
+}
+
+
+/* ページ外枠 */
+
+
+
+/* ==================================================================================================== 01.全css共通設定*/
+
+/* 全ての要素の間隔・余白を０へ */
+* {
+ margin:0;
+ padding:0;
+}
+
+p,#contents li,dl,dd { line-height:160%; } /* 文章の行間を指定 */
+
+p { margin:0px 0em 1.5em 3px; }
+
+ul,ol,dl { margin:0em 1em 1em 2em; }
+
+.contentswrap { margin:0px; } /* 間隔・余白調整用 */
+
+
+
+
+#map_canvas {
+
+width:98%; 
+height:98%;
+position: relative;
+padding-bottom: 75; 
+/* これが縦横比*/
+height: 0;
+overflow: hidden;
+top: 0;
+left: 0;
+
+
+}
+
+
+
+#infoWindow {
+/*width: 350px;
+height:100px;*/
+font-size:12px; 
+text-align:left; 
+}
+
+
+
+html {
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: aliased;
+}
+
+header nav {
+	text-align: center;
+	background: #efefef;
+}
+header nav ul {
+	margin: 0;
+	padding: 1em;
+	list-style-type: none;
+}
+header nav ul li {
+	display: inline;
+	margin-left: 1em;
+}
+header nav ul li:first-child {
+	margin-left: 0;
+}
+header nav ul li ul {
+	display: none;
+}
+a {
+	color: #f77564;
+}
+a:hover {
+	color: #333;
+}
+a, a:hover {
+	-o-transition: color 0.25s ease-in;
+	-webkit-transition: color 0.25s ease-in;
+	-moz-transition: color 0.25s ease-in;
+	transition: color 0.25s ease-in;
+}
+section, article, header {
+	display: block;
+	float: left;
+	width: 100%;
+}
+article {
+	width: 96%;
+	padding: 3em 2%;
+}
+
+
+
+img.img1 {
+ margin: 10px 3px 0px 3px; /* 上右下左 */
+ border-style:none;
+ width:80px;
+ height:23px;  
+
+}
+
+
+/* イメージの枠消去 */
+img.type3 {
+ margin:0em 0em 0em 0.5em;
+ border-style:none;
+ width:70px;
+ height:35px;
+ text-align:bottom;
+}
+
+
+/* フッター */
+#footer {
+ font-family: 'メイリオ',Meiryo,"Lucida Grande", "segoe UI", "ヒラギノ角ゴ ProN W3","serif"; 
+ padding:5px 0px;
+ border-top:3px solid #bcb7eb;
+ font-size:0.9em; 
+ text-align:left;
+ letter-spacing:0.1em; 
+ background-color:#ffffff;
+}
+
+
+/* そのほか個別設定 */
+.title{
+ padding:7px 5px 5px 10px;
+ margin:10px 30px 10px 20px;
+ text-align:center;
+ border-left:10px solid #F4CC0B;; 
+ border-radius:0px 0px 15px 0px; 
+ position:relative;
+ z-index:1;
+ font-size:24px;
+ font-weight:bold;
+ color:#FFFFFF;
+ background-color:#0B7A8E;
+}
+
+table{
+ margin:5px 0px 0px 5px;
+ width:100%;
+ border-top:1px solid #663300;
+ border-left:1px solid #663300;
+ border-collapse:collapse;
+ text-align:left;
+
+}
+
+table th{ 
+
+
+ text-align:center;
+ border-right:1px solid #663300;
+ border-bottom:1px solid #663300;
+
+
+ }
+
+table td{
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:center;
+ font-size:1.0em;
+ letter-spacing:1px;
+ text-indent:1px;
+ padding:1px 5px;
+ margin:0px;
+ border-right:1px solid #663300;
+ border-bottom:1px solid #663300;
+
+}
+
+
+table caption{
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:center;
+ font-size:1.2em;
+ letter-spacing:1px;
+ text-indent:1px;
+ padding:1px 5px;
+ margin:0px;
+
+
+}
+
+/* ==================================================================================================== 02a.IE共通*/
+
+
+/* ページの本文 */
+#main-right {
+
+ width: 100%;
+ margin: 10px 3px 0px 0px; /* 上右下左 */
+ background-image: url(img/bg19.jpg);
+
+}
+
+
+/* ページの本文 */
+#main-left {
+ 
+ width: 100%;
+ margin: 10px 3px 0px 0px; /* 上右下左 */
+
+}
+
+
+.kaigyo-no{
+
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:left;
+ font-size:14px;
+ 
+ //padding:0.3em 1.7em;
+ text-align:left;
+
+}
+
+
+.big {
+
+width:100px;
+font-size:16px;
+font-weight:bold;
+text-decoration:none;
+text-align:center;
+padding: 0px 0px 0px 10px; /* 上右下左 */
+color:#fff;
+background-color:#1F2F54;
+border-radius:5px;
+nowrap;
+
+}
+
+
+.big2 {
+
+width:50px;
+font-size:14px;
+font-weight:bold;
+text-decoration:none;
+text-align:center;
+padding: 0px 0px 0px 2px; /* 上右下左 */
+color:#fff;
+background-color:#1F2F54;
+border-radius:5px;
+nowrap;
+
+}
+
+
+.big3 {
+
+width:100px;
+font-size:12px;
+font-weight:bold;
+text-decoration:none;
+text-align:center;
+padding: 3px 10px 2px 10px; /* 上右下左 */
+color:#fff;
+background-color:#1F2F54;
+border-radius:5px;
+nowrap;
+
+}
+
+
+.big4 {
+
+width:20%;
+font-size:16px;
+font-weight:bold;
+text-decoration:none;
+text-align:center;
+padding: 0px 0px 0px 5px; /* 上右下左 */
+color:#fff;
+background-color:#1F2F54;
+border-radius:5px;
+nowrap;
+
+}
+
+table, th, td {
+    border: none;
+}
+
+
+/* ページの本文 */
+#image-area {
+
+ margin: 5px 0px 5px 0px; /* 上右下左 */
+ nowrap;
+
+}
+
+
+
+/* ページの本文 */
+#big-text {
+ 
+ font-weight:bold;
+
+ font-size:16px;
+ 
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;
+ color:#4705B0;
+ background-color: #ffffff;
+
+}
+
+
+
+form{
+
+nowrap;
+
+ font-size:10px;
+ 
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;
+ color:#4705B0;
+ display:block;
+
+}
+
+
+input[type="checkbox"] {
+nowrap;
+
+border: 1px solid #aaaaaa;
+vertical-align: -8px;
+-webkit-appearance: none;
+position: relative;
+margin-right: 5px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+-webkit-box-sizing: border-box;
+width: 20px;
+height: 20px;
+/*Other Browser*/
+background: #e2e2e2;
+/*For Old WebKit*/
+background: -webkit-gradient(
+linear, left top, left bottom,
+color-stop(0.00, #ffffff),
+color-stop(1.00, #e2e2e2)
+);
+/*For Modern Browser*/
+background: linear-gradient(
+to bottom,
+#ffffff 0%,
+#e2e2e2 100%
+);
+
+}
+
+input[type="checkbox"]:checked {
+
+/*Other Browser*/
+background: #99cc00;
+/*For Old WebKit*/
+background: -webkit-gradient(
+linear, left top, left bottom,
+color-stop(0.00, #99cc00),
+color-stop(1.00, #87b400)
+);
+/*For Modern Browser*/
+background: linear-gradient(
+to bottom,
+#99cc00 0%,
+#87b400 100%
+);
+border: 1px solid #336600;
+
+}
+
+input[type="checkbox"]:checked:before {
+position: absolute;
+left: 1px;
+top: 15px;
+display: block;
+-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+content: "";
+width: 10px;
+height:5px;
+background: #ffffff;
+-webkit-transform: rotate(45deg);
+-webkit-transform-origin: right center;
+
+}
+
+input[type="checkbox"]:checked:after {
+display: block;
+position: absolute;
+left: 5px;
+top: 10px;
+content: "";
+-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+width: 10px;
+height: 5px;
+background: #ffffff;
+-webkit-transform: rotate(-53deg);
+-webkit-transform-origin: left center;
+
+}
+
+
+
+.select-wrap{
+position:relative;
+overflow:hidden;
+display:inline-block;
+min-width:20px;
+/*min-width:4em; */
+
+background-color:#ffffff;
+background-image:-webkit-linear-gradient(top, #ffffff 0%, #dfe0d9 100%);
+background-image:linear-gradient(top, #ffffff 0%, #dfe0d9 100%);
+border:1px solid #c0c0c0;
+color:#333;
+}
+
+.select-wrap select{
+-webkit-appearance:none;
+-moz-appearance:none;
+appearance:none;
+position:relative;
+z-index:2;
+display:block;
+width:100%;/* fallback non calc support */
+width:-webkit-calc(100% + 5em);
+margin:0;
+padding:3px 10px 3px 3px;
+/*padding:.3875rem 1.1875rem .3875rem .3875rem;*/
+background:transparent;
+border:0;
+outline:none;
+font-size:12px;
+/*font-size:2rem;*/
+line-height:1.0;
+}
+
+.entypo-down-open-mini:before{
+/* content:''; 今回のサンプルはCDNを使っているため指定していないけど指定する必要があります。 */
+font-family:'entypo',sans-serif;
+position:absolute;
+z-index:1;
+top:50%;
+right:6px;
+right:.25rem;
+margin-top:-8px;
+margin-top:-.5rem;
+font-size:12px;
+/*font-size:2rem;*/
+line-height:0.5;
+color:#333;
+}
+
+
+
+
+/* メイン要素（ＩＤ）での文字（h1～h4）の内容 */
+h1 {
+
+
+   color: #ffffff; /* 文字の色 */
+   background-color : #6666cc; /* 背景の色 */
+   border-style: double; /* 枠の種類 */
+   border-color: #0000ff; /* 枠の色 */
+   border-width: 4px; /* 枠の幅 */
+   line-height: 120%; /* 行の高さ */
+   text-align: center; /* テキストの配置 */
+
+
+}
+
+
+h2 {
+
+ padding:5px 0px 3px 5px;
+ text-align:center;
+ margin:0px 20px;
+ border-left:10px solid #F4CC0B;
+ font-size:2.5em;
+ background-color:#F6F6F6;
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;
+ color:#4705B0;
+ background-color: #ffffff;
+}
+
+h3{
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;
+    position: relative;
+    margin: 0 0 0.2em;
+    padding: 0.1em 0.1em 0.1em 0.4em;
+    font-size: 1.05em;
+    font-weight: bold;
+    text-intent:5px; 
+    letter-spacing:5px; 
+    color: #fff;
+    background: #333333;
+    z-index: 1;
+}
+ 
+h3:before{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-right: #fff solid 2px;
+    background: #B92A2C;
+    background-image: -webkit-gradient(linear, left top, left bottom,
+            from(            rgba(255, 255, 255, 0.0)), 
+            color-stop(0.20, rgba(255, 255, 255, 0.0)), 
+            color-stop(0.20, rgba(255, 255, 255, 0.1)), 
+            color-stop(0.40, rgba(255, 255, 255, 0.1)), 
+            color-stop(0.40, rgba(255, 255, 255, 0.3)), 
+            color-stop(0.60, rgba(255, 255, 255, 0.3)), 
+            color-stop(0.60, rgba(255, 255, 255, 0.5)), 
+            color-stop(0.80, rgba(255, 255, 255, 0.5)), 
+            color-stop(0.80, rgba(255, 255, 255, 0.6)), 
+            to(              rgba(255, 255, 255, 0.6))
+            );
+    background-image: -webkit-linear-gradient(top,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: -moz-linear-gradient(top,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: -o-linear-gradient(top,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: linear-gradient(to bottom,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+            z-index:-1;
+}
+ 
+h3:after{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-image: -webkit-gradient(linear, left top, right top,
+            from(            rgba(255, 255, 255, 0.0)), 
+            color-stop(0.20, rgba(255, 255, 255, 0.0)), 
+            color-stop(0.20, rgba(255, 255, 255, 0.1)), 
+            color-stop(0.40, rgba(255, 255, 255, 0.1)), 
+            color-stop(0.40, rgba(255, 255, 255, 0.3)), 
+            color-stop(0.60, rgba(255, 255, 255, 0.3)), 
+            color-stop(0.60, rgba(255, 255, 255, 0.5)), 
+            color-stop(0.80, rgba(255, 255, 255, 0.5)), 
+            color-stop(0.80, rgba(255, 255, 255, 0.6)), 
+            to(              rgba(255, 255, 255, 0.6))
+            );
+    background-image: -webkit-linear-gradient(left,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: -moz-linear-gradient(left,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: -o-linear-gradient(left,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+    background-image: linear-gradient(to right,
+            transparent 20%,
+            rgba(255, 255, 255, 0.1) 20%, 
+            rgba(255, 255, 255, 0.1) 40%, 
+            rgba(255, 255, 255, 0.3) 40%, 
+            rgba(255, 255, 255, 0.3) 60%, 
+            rgba(255, 255, 255, 0.5) 60%, 
+            rgba(255, 255, 255, 0.5) 80%, 
+            rgba(255, 255, 255, 0.6) 80%, 
+            rgba(255, 255, 255, 0.6) 100%
+            );
+            z-index:-1;
+}
+
+#titlearea5 {
+
+border-bottom: 1px solid #9999ff;
+border-left: 10px solid #9999ff;
+text-align: left;
+background-color: #fff;
+font-size: 16px;
+color: #000;
+margin: 10px;
+padding: 2px 2px 2px 15px;
+ font-family: "ＭＳ 明朝",serif; 
+ background-color: #ffffff;
+
+}
+
+
+#titlearea3 {
+
+border-bottom: 1px solid #9999ff;
+border-left: 10px solid #9999ff;
+text-align: left;
+background-color: #fff;
+font-size: 16px;
+color: #000;
+margin: 10px;
+padding: 2px 2px 2px 15px;
+ font-family: "ＭＳ 明朝",serif; 
+ background-color: #ffffff;
+
+}
+
+h4{
+margin: 0 0 1.5em;
+padding: 0.8em;
+font-size: 1.143em;
+font-weight: bold;
+border-top: 1px dashed #aaa;
+border-bottom: 1px dashed #aaa;
+background: #eee;
+text-shadow: 1px 1px 0 rgba(255,255,255,1);
+box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+-moz-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+-webkit-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+-o-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+-ms-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+}
+
+h5{
+    position: relative;
+    font-family: 'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3',"ＭＳ 明朝",sans-serif;
+    color: #111;
+    font-size: 1.143em;
+    font-weight: bold;
+    margin: 0 0 1.5em;
+    padding: 0.5em 0.6em 0.5em 1.7em;
+    border-bottom: 3px solid #B92A2C;
+}
+ 
+h5:before{
+    content: "";
+    position: absolute;
+    background: #d48789;
+    top: 0;
+    left: 0.4em;
+    height: 12px;
+    width: 12px;
+    transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+}
+ 
+h5:after{
+    content: "";
+    position: absolute;
+    background:#d26466;
+    top: 1.0em;
+    left: 0;
+    height: 8px;
+    width: 8px;
+    transform: rotate(15deg);
+    -moz-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    -o-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+}
+
+#heading06{
+
+	    position:relative;
+
+	    margin:0 4px 0 5px;
+
+	    padding:4px 10px 0px 6px;
+
+	    font:normal 24px/1.3 serif;
+
+	    color:#009;
+
+	    background:#ffc;
+
+	    box-shadow:
+
+	        12px 0 0 0 #ffc,
+
+	        0 12px 0 0 #ffc,
+
+	        1px 15px 4px -3px rgba(0,0,0,0.2);
+
+	}
+
+	#heading06:before{
+
+    content:" ";
+
+	    position:absolute;
+
+	    top:100%;
+
+	    left:100%;
+
+	    width:0;
+
+	    height:0;
+
+	    border-width:12px 12px 0 0;
+
+	    border-style:solid;
+
+	    border-color:transparent;
+
+	    border-top-color:#cc9;
+
+	}
+
+	#heading06:after{
+
+	    content:" ";
+
+	    position:absolute;
+
+	    padding:0 10px;
+
+	    bottom:0;
+
+	    left:10px;
+
+	    width:120px;
+
+	    height:20px;
+
+	    background:rgba(255,182,182,0.4);
+
+	    -webkit-transform: rotate(-1deg);
+
+	    -moz-transform: rotate(-1deg);
+
+	    -o-transform: rotate(-1deg);
+
+	    transform: rotate(-1deg);
+
+	}
+
+
+table.type6 {
+ margin :3px 3px 3px 3px;/* 上右下左 */
+ padding :0px 0px;
+ border-top:1px solid #663300;
+ border-left:1px solid #663300;
+ border-collapse:collapse;
+ text-indent: 0px;
+ text-align:left;
+ width:99%; 
+ border-spacing:0;
+ background-color:#ffffff;
+ empty-cells:show;
+}
+
+#noborder{
+border-collapse: collapse;
+border: none;
+background: #ccc;
+}
+#noborder th{
+padding: 10px;
+background: #ff9;
+}
+#noborder td{
+padding: 10px 20px;
+background-image: url(img/bg22.jpg);
+border: none;
+}
+
+table.type6 caption{
+
+
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+
+ font-size:10px;
+ font-weight:bold; 
+
+ padding:0px 0px 0px 0px;/* 上右下左 */
+
+ color:#2f4f4f;
+
+}
+
+
+.type6 th{
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:left;
+ font-size:10px;
+ border-right:1px solid #663300;
+ border-bottom:1px dashed #663300;
+ color:#330000;
+ background-color:#E6E6FA;
+ padding:2px 1px 2px 1px;/* 上右下左 */
+ text-align:left;
+}
+
+
+
+.type6 td {
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:left;
+ font-size:10px; 
+ border-right:1px solid #663300;
+ border-bottom:1px solid #663300;
+ padding:2px 1px 2px 1px;/* 上右下左 */
+ text-indent: 0px;
+
+}
+
+.kbn {
+ text-align:left;
+ font-size:12pt;
+ text-indent:1em;
+ background-color:#e3f7e6;
+ border-bottom:1px dashed #663300;
+ border-right:1px dashed #663300;
+}
+
+
+.kbn2 {
+ text-align:left;
+ font-size:12pt;
+ text-indent:1em;
+ background-color:#dda0dd;
+ border-bottom:1px dashed #663300;
+ border-right:1px dashed #663300;
+}
+.type6 td.c { padding:0.1em 0.3em; }
+.type6 td.d {
+ font-size:1.3em;
+ font-weight:bold; 
+ background-color:#ccccff;  
+ padding:0.1em 0.3em;
+}
+
+
+
+table td.line3 {
+
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:left;
+ font-weight:normal; 
+ background-color:#ffffff;  
+ border-bottom:1px dashed #663300;
+ padding:1px 5px 1px 5px;/* 上右下左 */
+
+
+}
+
+
+table td.line4 {
+
+ font-family: 'メイリオ',Meiryo, "ＭＳ 明朝",serif;   
+ text-align:right;
+ font-weight:normal; 
+ background-color:#ffffff;  
+ border-bottom:1px dashed #663300;
+ padding:1px 5px 1px 5px;/* 上右下左 */
+
+
+}
+
+
+.trim-image-to-circle {
+
+background-image: url("../image/landmark/ninnaji1.jpg"); /* 表示する画像 */
+width: 65px; /* ※縦横を同値に */
+height: 65px; /* ※縦横を同値に */
+border-radius: 50%; /* 角丸半径を50%にする(=円形にする) */
+background-position: center center; /* 横長画像の左上を基準に表示 */
+display: none; /* 複数の画像を横に並べたい場合 */
+
+margin: 3px 1px 0px 1px; /* 上右下左 */
+
+}
+
+
+
+.modal-window {
+-webkit-transform: translate(0, 100%);
+-moz-transform: translate(0, 100%);
+-o-transform: translate(0, 100%);
+-ms-transform: translate(0, 100%);
+transform: translate(0, 100%);
+-webkit-transform: translate3d(0, 100%, 0);
+transform: translate3d(0, 100%, 0);
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+z-index: 999;
+opacity: 0;
+line-height: 1.3;
+display: none\9;
+}
+.modal-window:target {
+-webkit-transform: translate(0, 0);
+-moz-transform: translate(0, 0);
+-o-transform: translate(0, 0);
+-ms-transform: translate(0, 0);
+transform: translate(0, 0);
+opacity: 1;
+}
+.is-active.modal-window {
+display: block\9;
+}
+.modal-window:target {
+display: block\9;
+}
+.modal-window .modal-inner {
+position: absolute;
+top: 20px;
+left: 50%;
+z-index: 20;
+margin-left: -85px;
+width: 270px;
+overflow-x: hidden;
+border-radius: 2px;
+background: #fff;
+-webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+.modal-window .modal-inner p {
+padding: 0 20px;
+}
+.modal-window .modal-close {
+display: block;
+ font-size:12px;
+ font-weight:bold; 
+text-indent: -30px;
+overflow: hidden;
+background: #fff;
+}
+.modal-window .modal-close:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+z-index: 10;
+background: url("data:image/png;base64,iVBORw0KG
+goAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAEElEQVR4
+2gEFAPr/AAAAAMwA0QDNTiUx4gAAAABJRU5ErkJggg==");
+}
+.modal-window .modal-close:after {
+content: '\00d7';
+position: absolute;
+top: 25px;
+left: 50%;
+z-index: 20;
+margin-left: 285px;
+background: #fff;
+border-radius: 2px;
+padding: 2px 8px;
+font-size: 1.2em;
+text-decoration: none;
+text-indent: 0;
+}
+.modal-window {
+-webkit-transition: opacity 0.4s;
+-o-transition: opacity 0.4s;
+transition: opacity 0.4s;
+}
+
+
+
+.textarea {
+float:left; 
+border:0;
+padding:5px;
+font-size:16px;
+font-family:Arial, sans-serif;
+color:#000;
+border:solid 1px #ccc;
+margin:0 0 0px;
+width:73%;
+-moz-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+-webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+
+
+}
+
+
+}
+
+
+
+
+
+

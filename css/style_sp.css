@@ -1,0 +1,404 @@
+﻿
+/*スマートフォン用CSSファイル*/
+
+/*共通*/
+html {
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: aliased;
+}
+
+body {
+  padding-top:3.5rem;
+  /*padding-bottom:4.5rem;*/
+}
+
+/*ボタン*/
+.btn {
+  border-radius:20px;
+  display: inline-block;
+  margin: 0px 2px 0px 2px; /* 上右下左 */
+  nowrap;
+}
+
+
+/*ヘッダ*/
+.navbar {
+  background-image: url(../image/background3.jpg);
+  background-size: contasin;
+  background-position: center 60%;
+  height: 53px;
+}
+
+.navbar-brand {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: -18;
+  text-align:center;
+  margin: auto;
+}
+
+.navbar-toggler {
+  z-index: 2;
+}
+
+.navbar-collapse {
+  margin:5px;
+  background-color:#616161;
+}
+
+#header-logo {
+  width:124px
+}
+
+#localize19 {
+  display:none;
+}
+
+/*言語切替-----------------------------*/
+.btn-localize {
+  border-radius:10px;
+  /*height: 16px;*/
+  font-size:10px;
+  margin-left:10px;
+  margin-bottom:0px;
+  background-color:#fffff0;
+  border-color:#A2A2A2;
+  nowrap;
+  padding: 2px 7px 2px 7px; /* 上右下左 */
+}
+
+/*観光地の検索------------------------*/
+#search_place{
+  text-align: left;
+}
+
+/*フォーム全体*/
+.form-inline {
+  max-width: 400px;
+  padding: 8px;
+  margin: 0 auto;
+  font-size:16px;
+  /*display:inline-block;*/
+}
+
+/*入力ボックス*/
+.form-control {
+  max-width:80%;
+  border-radius:20px;
+  font-size:16px;
+  display:inline-block;
+}
+
+
+
+/*ランドマーク---------------------------*/
+#landmark-area td{
+  width:23%;
+  border-style: none;
+}
+
+#landmark-area .landmark_image {
+  width:20%;
+  background-image: url("../image/landmark/ninnaji1.jpg"); /* 表示する画像 */
+  width: 65px; /* ※縦横を同値に */
+  height: 65px; /* ※縦横を同値に */
+  border: 2px solid #DAD0D5;
+  border-radius: 50%; /* 角丸半径を50%にする(=円形にする) */
+  background-position: center center; /* 横長画像の左上を基準に表示 */
+  display: none; /* 複数の画像を横に並べたい場合 */
+  margin: 3px 1px 0px 1px; /* 上右下左 */
+}
+
+#landmark-area .landmark_text{
+  width:23%;
+  /*display:none,*/
+  border-style: none;
+  position: absolute;
+  background-color: #ffffff;
+  color:#C96195;
+  font-size:8px;
+  font-family:"Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+  margin:-15px auto;
+  nowrap;
+  display:none;
+  border-radius:20px;
+}
+
+#landmark-area #landmarkname1{
+  left:  8px;
+}
+
+#landmark-area #landmarkname2 {
+  left:  84px;
+}
+
+#landmark-area #landmarkname3 {
+  left: 154px;
+}
+
+#landmark-area #landmarkname4 {
+  left: 236px;
+}
+
+
+/*表示条件の絞り込みのエリア------------------------------*/
+.dispFilter{
+  max-width: 340px;
+  display:inline-block;
+  margin: 0px 0px 0px 10px; /* 上右下左 */
+}
+
+.btn-secondary {
+  font-size:12px;
+  background-color:#D38CCC;
+  border-color:#D38CCC;
+  display: inline-block; 
+  nowrap;
+}
+
+/*表示条件を絞り込んだ後のエリア（～を表示）*/
+#hihyouji4 {
+  margin-top:0px;
+  margin-right:15px;
+  margin-bottom:0px;
+  margin-left:10px;
+  color:#C96195;
+  font-family:"Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+  text-align:left;
+  font-size:14px;
+  letter-spacing:0px;
+}
+
+/*「全表示に戻る」のエリア*/
+#hihyouji5 {
+  display:none;
+}
+
+
+/*オプション表示------------------------------*/
+/*フォーム全体*/
+#Option {
+  margin-top: 8px;
+  margin-bottom:8px; 
+  padding: 2px;
+  font-size:14px;
+}
+
+/*チェックボックス*/
+input[type=checkbox] {
+  margin-left:2px; 
+  margin-top:0px; 
+  margin-bottom:0px; 
+}
+
+.check_css {
+
+  font-size:12px;
+  margin-top:0px; 
+  margin-bottom:0px; 
+  padding: 0px 0px 3px 0px; /* 上右下左 */
+  cursor: pointer;
+}
+
+/*チェックボックスにカーソルを当てた時*/
+.check_css:hover {
+  background: #FFCDFF;
+  border-radius:20px;
+}
+
+.nowrap {
+  display: inline-block; 
+}
+
+
+/*Googleマップを表示するエリア------------------------*/
+
+/*フォーム全体*/
+#main-left {
+  width: 100%;
+  margin: 0px 0px 0px 0px; /* 上右下左 */
+}
+
+/*Googleマップ*/
+#map_canvas {
+  width:100%;
+  margin: 0px 0px 0px 0px; /* 上右下左 */
+  padding-bottom: 120%;
+  /*これが縦横比*/
+  height: 0;
+  top: 0;
+  left: 0;
+}
+
+
+/*色々なところで使われていそうなのでさわらない*/
+a {
+  color: #f77564;
+}
+a:hover {
+  color: #333;
+}
+a, a:hover {
+  -o-transition: color 0.25s ease-in;
+  -webkit-transition: color 0.25s ease-in;
+  -moz-transition: color 0.25s ease-in;
+  transition: color 0.25s ease-in;
+}
+
+/* モーダルウィンドウを表示するエリア---------------- */
+/*フォーム全体*/
+#main-right {
+  width: 100%;
+  margin: 10px 3px 0px 0px; /* 上右下左 */
+  background-image: url(img/bg19.jpg);
+}
+
+/*ロード中の画像-----------------------------------*/
+#loading {
+  width: 120px; /* gif画像の幅 */
+  height: 120px; /* gif画像の高さ */
+  margin: -68px 0 0 -78px; /* gif画像を画面中央に */
+  padding: 20px; /* gif画像を大きく */
+  opacity: 0.5; /* 透過させる */
+  border-radius: 15px; /* 丸角 */
+  position: fixed; /* gif画像をスクロールさせない */
+  left: 50%; /* gif画像を画面横中央へ */
+  top: 50%; /* gif画像を画面縦中央へ */
+}
+
+
+/*駐輪場の詳細表示の表（ウィンドウ全体）-------------*/
+
+.modal-window {
+  -webkit-transform: translate(0, 100%);
+  -moz-transform: translate(0, 100%);
+  -o-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  transform: translate(0, 100%);
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  -webkit-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+  opacity: 0;
+  line-height: 1.3;
+}
+
+.modal-window:target {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.modal-window .modal-inner {
+  position: absolute;
+  top:  20px;
+  left: 10%;
+  right: 10%;
+  z-index: 99999;
+  margin-left: -20px;
+  margin-right: -20px;
+  width: 350px;
+  overflow-x: hidden;
+  border-radius: 2px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+/*閉じるリンク*/
+.modal-window .modal-close {
+  display: block;
+  font-family:"Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+  font-size:1em;
+  margin:10px auto 0px;
+  width: 100px;
+  text-align: center;
+}
+
+/*駐輪場の詳細表示の表-------------*/
+table.type6 {
+  margin :10px 10px;
+  padding :0px 0px;
+  font-size:10pt;
+  border-top:1px solid #979797;
+  border-left:1px solid #979797;
+  border-right:1px solid #979797;
+  border-collapse:collapse;
+  text-indent: 0px;
+  text-align:left;
+  width:95%;
+  border-spacing:0;
+  background-color:#ffffff;
+  empty-cells:show;
+}
+
+/*列名*/
+.kbn {
+  text-align:left;
+  text-indent:1em;
+  background-color:#EBC2D5;
+  border-bottom:0.5px dashed #979797;
+  border-right:0.5px dashed #979797;
+}
+
+/*テーブルの１セル*/
+.type6 td {
+  font-family:"Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+  text-align:left;
+  border-right:0.5px solid #979797;
+  border-bottom:0.5px solid #979797;
+  padding:3px 3px 3px 3px;/* 上右下左 */
+  text-indent: 0px;
+  nowrap;
+}
+
+
+/*現在地を表示ボタン-----------------------------------*/
+.container {
+  max-width: 150px;
+  margin-right: 0px;
+  text-align: right;
+  bottom:10px;
+}
+
+
+/*地下鉄の時刻表を表示（JS内で定義）　未使用なので、そのうち消す！！！*/
+.small{
+  color:#C96195;
+  font-size:0.6em;
+}
+
+.modal-inner2 {
+  position: absolute;
+  top:  20px;
+  left: 50%;
+  z-index: 99999;
+  margin-left: -95px;
+  width: 290px;
+  overflow-x: hidden;
+  border-radius: 2px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  font-size:0.6em;
+}
+
+
+/*アコーディオン*/
+.accordion {
+  font-size:15px;
+  font-family:"Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+  color:#C96195;
+  text-align:center;
+}

@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+      <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+</head>
+<body>
+<script type='text/javascript'>
+      var query = 'select ?cpi where { ?s <http://data.e-stat.go.jp/lod/ontology/measure/index> ?cpi ; <http://data.e-stat.go.jp/lod/ontology/crossDomain/dimension/timePeriod> "2015-06"^^<http://www.w3.org/2001/XMLSchema#gYearMonth>.}';
+      var url = 'http://data.e-stat.go.jp/lod/sparql/alldata/query';
+      $.ajax({
+            method: 'POST',
+            dataType: 'json',
+            url: url,
+            data: {query: query},
+            success: function(data) {
+                alert('cpi: ' + data.results.bindings[0].cpi.value);
+            }
+      });
+</script>
+</body>
+</html>

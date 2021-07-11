@@ -1,0 +1,198 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>chariP naVi（京都面白データランキング）</title>
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+
+<script type="text/javascript">
+var ua, isIE, array, version;
+// UserAgetn を小文字に正規化
+ua = window.navigator.userAgent.toLowerCase();
+var userAgent = window.navigator.userAgent.toLowerCase();
+if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+	document.write('<link rel="stylesheet" type="text/css" href="../css/style_sp.css">');
+}else if(userAgent.indexOf('msie') != -1 || ua.indexOf('trident') >= 0){
+	document.write('<link rel="stylesheet" type="text/css" href="../css/style.css">');
+}else {
+	document.write('<link rel="stylesheet" type="text/css" href="../css/style.css">');
+}
+</script>
+
+    <script src="https://maps.google.com/maps/api/js?v=3.exp&key=AIzaSyB7pLturLce9Hn9MYhXBJ6F38lM-FuDT4s&sensor=false"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+    <script src="../js/jquery.meanmenu.js"></script>
+    <script src="../js/analysis.js"></script>
+
+
+<script src="../js/highcharts.js"></script>
+<script src="../js/exporting.js"></script>
+
+  </head>
+
+
+  <body  style="padding-top:3.5rem; padding-bottom:4.5rem;">
+
+
+
+    <!-- <h3>ちゃりなび！</h3> -->
+    <!-- <header> -->
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top" >
+        <a class="navbar-brand" href="#">
+        <img alt="ブランド" src="../image/titlelogo.png" width="124" ></a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="Navber">
+          <ul class="navbar-nav mr-auto ">
+            <li class="nav-item"><a class="nav-link" href="../index.html">ホーム(chariP naVi)</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://kyoto-bicycle.com/rulemanner" target="_blank">走行ルール・マナー(京都市サイト)</a></li>
+        　  <li class="nav-item"><a class="nav-link" href="http://kanko.city.kyoto.lg.jp/bicycle/use/manner/img/bicycle_parking_map.pdf" target="_blank">走行禁止区域(京都市サイト)</a></li>
+            <li class="nav-item dropdown"><a href="../recommend/index.html" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+おすすめサイクリングコース(作成中)</a>
+<!--               <ul>
+               <li><a href="#">京都駅から北へ</a></li>
+               <li><a href="#">京都駅から南へ</a></li>
+               <li><a href="#">四条河原町から東へ</a></li>
+             </ul> -->
+            </li>
+            <li class="nav-item active"><a class="nav-link" href="#">きょうと面白データランキング<span class="sr-only">(現位置)</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#">お問合せ</a></li>
+          </ul>
+        </div>
+      </nav>
+    <!-- </header> -->
+
+    <div id="message" style="display:none"></div>
+    <div id="result" style="display:none"></div>
+
+<div id="main-left">
+
+<h3>都市間の様々なデータを相関で見てみよう！何か面白い発見はあったかな？
+</h3>
+
+<form id="scatter" name="myform" class="select-box01" action="#" >
+
+<select id="bunrui1" name="index1" action="#" >
+
+  <option value="1" SELECTED>指標(Ｘ軸)を選択してください</option> 
+
+  <optgroup label="政府統計LODデータ">
+
+    <option value="A1101">人口総数</option>
+    <option value="A110101">人口総数（男）</option>
+    <option value="A110102">人口総数（女）</option>
+    <option value="A1405">０～５歳人口</option>
+    <option value="A1409">６～１１歳人口</option>
+    <option value="A1411">１２～１４歳人口</option>
+    <option value="A1413">１５～１７歳人口</option>
+    <option value="A1700">外国人人口</option>
+    <option value="A8301">高齢単身世帯数(65歳以上の者1人)</option>
+    <option value="A8401">母子世帯数</option>
+    <option value="A4101">出生数</option>
+    <option value="A4200">死亡数</option>
+    <option value="A6108">昼間人口比率</option>
+    <option value="A9101">婚姻件数</option>
+    <option value="A9201">離婚件数</option>
+    <option value="C2107">事業所数</option>
+    <option value="C2210">第１次産業従業者数</option>
+    <option value="C2211">第２次産業従業者数</option>
+    <option value="C2212">第３次産業従業者数</option>
+    <option value="C3401">製造品出荷額等</option>
+    <option value="C3403">製造業事業所数</option>
+    <option value="C3404">製造業従業者数</option>
+    <option value="D1202">一般行政部門職員数</option>
+    <option value="D2204">公債費比率（市町村財政）</option>
+    <option value="D2212">将来負担比率（市町村財政）</option>
+    <option value="D420102">市町村民税</option>
+    <option value="D420202">固定資産税（市町村税）</option>
+    <option value="D3203034">生活保護費（市町村財政）</option>
+    <option value="D320310">教育費（市町村財政）</option>
+    <option value="D3203032">老人福祉費（市町村財政）</option>
+    <option value="C5401">標準価格（平均価格）（住宅地）</option>
+    <option value="C5403">標準価格（平均価格）（商業地）</option>
+
+  </optgroup>
+
+</select>
+
+<select NAME="index2">
+    <option value="1" SELECTED>指標(Y軸)を選択してください</option> 
+
+  <optgroup label="大都市比較統計年表データ">
+
+    <option value="manoflifespan">平均寿命男</option>
+    <option value="womanoflifespan">平均寿命女</option>
+   <option value="population">人口</option>
+   <option value="household">世帯</option>
+    <option value="Thenumberofhousing">住宅数</option>
+    <option value="Totalofvehicles">自動車台数総数</option>
+    <option value="Ridepersonnel">市（都）営バス乗車人数</option>
+    <option value="JRRidepersonnel">ＪＲ乗車人数</option>
+    <option value="TAXIRidepersonnel">タクシー乗車人数</option>
+    <option value="Citypark">都市公園数</option>
+    <option value="Naturalpark">自然公園数</option>
+    <option value="Totalofnersery">保育所総数</option>
+    <option value="Totalofkindergerten">幼稚園総数</option>
+    <option value="Numberofprimaryschools">小学校数</option>
+    <option value="Numberofjuniorhighschools">中学校数</option>
+    <option value="Numberofseniorhighschools">高等学校数</option>
+    <option value="Numberofcollege">大学数</option>
+    <option value="Numberoflibraries">公立図書館数</option>
+    <option value="Numberofphysicians">医師数</option>
+    <option value="Capitacityprivateincomedistribution">１人当たり市民所得(分配)</option>
+    <option value="Futureburdenratio">健全化判断将来負担比率</option>
+    <option value="Populationincreaseratio">人口増加比率</option>
+    <option value="Socialincreaseratio">社会増加比率</option>
+    <option value="Marriagerate">婚姻率</option>
+    <option value="Divorcerate">離婚率</option>
+    <option value="Totalspecialfertilityrate">合計特殊出生率</option>
+    <option value="Collegeetc">大学等進学率(高等学校新規卒業者)</option>
+    <option value="Employmentrateofworkersincluding">労働者の就職率</option>
+    <option value="Effectivejobofferratioofworkersincluding">労働者の有効求人倍率</option>
+    <option value="Consumptionexpenditure">消費支出(１世帯当たり１か月間)</option>
+    <option value="Foodexpenditureratiovs">食料費割合(対消費支出)</option>
+    <option value="Housingcostratiovs">住居費割合(対消費支出)</option>
+    <option value="Numberofpublicbaths">公衆浴場数(人口10万人当たり)</option>
+    <option value="Reallifeprotectedpersonnelper">生活保護被保護実人員(人口千人当たり)</option>
+    <option value="Deathsduetolifestylediseases">生活習慣病による死亡者数(人口10万人当たり)</option>
+    <option value="Deathsduetomalignantneoplasms">悪性新生物による死亡者数(人口10万人当たり)</option>
+    <option value="Numberofpharmacies">薬局数(人口10万人当たり)</option>
+    <option value="FirefirenumberFirefirenumber">火災出火件数(人口１万人当たり)</option>
+    <option value="Trafficaccidentoccurrencecount">交通事故発生件数(人口10万人当たり)</option>
+    <option value="Numberofpenalcodeoffensesperceived">刑法犯認知件数(人口千人当たり)</option>
+
+  </optgroup>
+
+
+</select>
+
+
+<button type="button" class="btn btn-sm btn-outline-secondary" onclick="scatter_func();"return false;>表示</button>
+
+
+</form>
+
+</div>
+
+
+      <div id="loading" style="display:none;">
+        <img src="../image/icon_loader_01.gif" width="120" height="120" alt="Now Loading..." />
+        <p>Now Loading...</p>
+      </div>
+
+      <div id="container"></div>
+ 
+
+    <!-- ここはgoogle アナリティクスのトラッキングコードです -->
+    <script src="../js/analytics.js"></script>
+    <!-- ここはgoogle アナリティクスのトラッキングコードです -->
+
+  </body>
+</html>
+

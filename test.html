@@ -1,0 +1,333 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>chariP naVi（β版）</title>
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+
+    <script type="text/javascript">
+      var ua, isIE, array, version;
+      // UserAgetn を小文字に正規化
+      ua = window.navigator.userAgent.toLowerCase();
+      var userAgent = window.navigator.userAgent.toLowerCase();
+      if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1)
+          || navigator.userAgent.indexOf('iPod') > 0
+          || navigator.userAgent.indexOf('Android') > 0) {
+        document.write('<link rel="stylesheet" type="text/css" href="css/style_sp.css">');
+      }else if(userAgent.indexOf('msie') != -1 || ua.indexOf('trident') >= 0){
+        document.write('<link rel="stylesheet" type="text/css" href="css/style.css">');
+      }else {
+        document.write('<link rel="stylesheet" type="text/css" href="css/style.css">');
+      }
+    </script>
+
+
+    <script src="https://maps.google.com/maps/api/js?v=3.exp&key=AIzaSyB7pLturLce9Hn9MYhXBJ6F38lM-FuDT4s&sensor=false"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.meanmenu.js"></script>
+
+
+    <script type="text/javascript">
+
+function localize(cnt){
+
+  $.ajax({
+    type: "GET",
+    scriptCharset: 'utf-8',
+    dataType:'json', // コレを忘れてた！！
+    url: 'json/localize.json',
+
+    success: function(json){
+
+      jsonData = json.localize;
+      var len = jsonData.length;
+
+      if (cnt == 2){ 
+
+  　　  document.getElementById('address').placeholder = jsonData[0].英語;
+  　　  document.getElementById('btn1').value = jsonData[1].英語;
+  　　  document.getElementById('localize1').innerText = jsonData[2].英語;
+  　　  document.getElementById('localize2').innerText = jsonData[3].英語;
+  　　  document.getElementById('localize3').innerText = jsonData[4].英語;
+  　　  document.getElementById('localize4').innerText = jsonData[5].英語;
+
+  　　  document.getElementById('localize5').innerText = jsonData[6].英語;
+  　　  document.getElementById('localize6').innerText = jsonData[7].英語;
+  　　  document.getElementById('localize7').innerText = jsonData[8].英語;
+  　　  document.getElementById('localize8').innerText = jsonData[9].英語;
+  　　  document.getElementById('localize9').innerText = jsonData[10].英語;
+  　　  document.getElementById('localize10').innerText = jsonData[11].英語;
+  　　  document.getElementById('localize11').innerText = jsonData[12].英語;
+  　　  document.getElementById('localize12').innerText = jsonData[13].英語;
+  　　  document.getElementById('localize13').innerText = jsonData[14].英語;
+  　　  document.getElementById('localize14').innerText = jsonData[15].英語;
+  　　  document.getElementById('localize15').innerText = jsonData[16].英語;
+  　　  document.getElementById('localize16').innerText = jsonData[17].英語;
+
+  　　  document.getElementById('localize17').innerText = jsonData[18].英語;
+  　　  document.getElementById('localize18').innerText = jsonData[19].英語;
+  　　  document.getElementById('localize19').innerText = jsonData[20].英語;
+  　　  document.getElementById('navbarDropdown').innerText = jsonData[21].英語;
+  　　  document.getElementById('localize21').innerText = jsonData[22].英語;
+  　　  document.getElementById('localize22').innerText = jsonData[23].英語;
+  　　  document.getElementById('localize23').value = jsonData[24].英語;
+
+     }
+
+      if (cnt == 1){ 
+
+  　　  document.getElementById('address').placeholder = jsonData[0].日本語;
+  　　  document.getElementById('btn1').value = jsonData[1].日本語;
+  　　  document.getElementById('localize1').innerText = jsonData[2].日本語;
+  　　  document.getElementById('localize2').innerText = jsonData[3].日本語;
+  　　  document.getElementById('localize3').innerText = jsonData[4].日本語;
+  　　  document.getElementById('localize4').innerText = jsonData[5].日本語;
+
+  　　  document.getElementById('localize5').innerText = jsonData[6].日本語;
+  　　  document.getElementById('localize6').innerText = jsonData[7].日本語;
+  　　  document.getElementById('localize7').innerText = jsonData[8].日本語;
+  　　  document.getElementById('localize8').innerText = jsonData[9].日本語;
+  　　  document.getElementById('localize9').innerText = jsonData[10].日本語;
+  　　  document.getElementById('localize10').innerText = jsonData[11].日本語;
+  　　  document.getElementById('localize11').innerText = jsonData[12].日本語;
+  　　  document.getElementById('localize12').innerText = jsonData[13].日本語;
+  　　  document.getElementById('localize13').innerText = jsonData[14].日本語;
+  　　  document.getElementById('localize14').innerText = jsonData[15].日本語;
+  　　  document.getElementById('localize15').innerText = jsonData[16].日本語;
+  　　  document.getElementById('localize16').innerText = jsonData[17].日本語;
+
+
+  　　  document.getElementById('localize17').innerText = jsonData[18].日本語;
+  　　  document.getElementById('localize18').innerText = jsonData[19].日本語;
+  　　  document.getElementById('localize19').innerText = jsonData[20].日本語;
+  　　  document.getElementById('navbarDropdown').innerText = jsonData[21].日本語;
+  　　  document.getElementById('localize21').innerText = jsonData[22].日本語;
+  　　  document.getElementById('localize22').innerText = jsonData[23].日本語;
+
+  　　  document.getElementById('localize23').value = jsonData[24].日本語;
+
+     }
+
+
+      if (cnt == 3){ 
+
+  　　  document.getElementById('address').placeholder = jsonData[0].中国語;
+  　　  document.getElementById('btn1').value = jsonData[1].中国語;
+  　　  document.getElementById('localize1').innerText = jsonData[2].中国語;
+  　　  document.getElementById('localize2').innerText = jsonData[3].中国語;
+  　　  document.getElementById('localize3').innerText = jsonData[4].中国語;
+  　　  document.getElementById('localize4').innerText = jsonData[5].中国語;
+
+  　　  document.getElementById('localize5').innerText = jsonData[6].中国語;
+  　　  document.getElementById('localize6').innerText = jsonData[7].中国語;
+  　　  document.getElementById('localize7').innerText = jsonData[8].中国語;
+  　　  document.getElementById('localize8').innerText = jsonData[9].中国語;
+  　　  document.getElementById('localize9').innerText = jsonData[10].中国語;
+  　　  document.getElementById('localize10').innerText = jsonData[11].中国語;
+  　　  document.getElementById('localize11').innerText = jsonData[12].中国語;
+  　　  document.getElementById('localize12').innerText = jsonData[13].中国語;
+  　　  document.getElementById('localize13').innerText = jsonData[14].中国語;
+  　　  document.getElementById('localize14').innerText = jsonData[15].中国語;
+  　　  document.getElementById('localize15').innerText = jsonData[16].中国語;
+  　　  document.getElementById('localize16').innerText = jsonData[17].中国語;
+
+
+  　　  document.getElementById('localize17').innerText = jsonData[18].中国語;
+  　　  document.getElementById('localize18').innerText = jsonData[19].中国語;
+  　　  document.getElementById('localize19').innerText = jsonData[20].中国語;
+  　　  document.getElementById('navbarDropdown').innerText = jsonData[21].中国語;
+  　　  document.getElementById('localize21').innerText = jsonData[22].中国語;
+  　　  document.getElementById('localize22').innerText = jsonData[23].中国語;
+
+  　　  document.getElementById('localize23').value = jsonData[24].中国語;
+
+     }
+
+    },
+    error:function(){
+      console.log('Miss..');
+    }
+  });
+
+} 
+    </script>
+
+    <script src="js/CycleNavi.js"></script>
+  </head>
+
+  <body  style="padding-top:3.5rem; padding-bottom:4.5rem;">
+    <!-- <h3>ちゃりなび！</h3> -->
+    <!-- <header> -->
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top" >
+        <a class="navbar-brand" href="#">
+        <img alt="ブランド" src="image/titlelogo.png" width="124" ></a>
+
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="Navber">
+          <ul class="navbar-nav mr-auto ">
+            <li class="nav-item active"><a class="nav-link" href="#" id="localize17">ホーム<span class="sr-only">(現位置)</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="https://kyoto-bicycle.com/rulemanner" target="_blank" id="localize18">走行ルール・マナー(京都市サイト)</a></li>
+            <li class="nav-item"><a class="nav-link" href="http://kanko.city.kyoto.lg.jp/bicycle/use/manner/img/bicycle_parking_map.pdf" target="_blank" id="localize19">走行禁止区域(京都市サイト)</a></li>
+            <li class="nav-item dropdown"><a href="recommend/index.html" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">おすすめサイクリングコース(作成中)</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="http://bicycle.rakusaba.jp/analysis/index.html" id="localize21">きょうと面白データランキング</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" id="localize22">お問合せ</a></li>
+          </ul>
+        </div>
+      </nav>
+    <!-- </header> -->
+
+    <div id="message" style="display:none"></div>
+    <div id="result" style="display:none"></div>
+
+   <div id="localize-area">
+     <a href="javascript:void(0):" id="hihyouji11" onClick="localize(1);return false;">
+          <button type="button" class="btn btn-localize btn-sm">日本語</button></a>
+
+     <a href="javascript:void(0):" id="hihyouji11" onClick="localize(2);return false;">
+          <button type="button" class="btn btn-localize btn-sm">English</button></a>
+ 
+     <a href="javascript:void(0):" id="hihyouji11" onClick="localize(3);return false;">
+          <button type="button" class="btn btn-localize btn-sm">中国語</button></a>
+    </div>
+
+    <div style="text-align: left;">
+
+      <form action="#" class="form-inline" onsubmit="getLatLng(document.getElementById('address').value); return(false);">
+        <input type='text' id='address' class="form-control" size="34" placeholder="地名または観光地を入力"
+          onfocus="if(this.value==this.defaultValue){this.value=''}"
+          onblur="if(this.value==''){this.value=this.defaultValue}" />
+
+        <input type='submit'  id='btn1' class="btn btn-sm btn-outline-secondary" value='検索'></form>
+
+    </div>
+
+    <div id="image-area">
+
+      <table class="image">
+        <tr>
+          <td width="23%"  style="border-style: none;">
+            <img src="image/landmark/ginkakuji1.jpg" id="landmark1" width="20%" alt="" class="trim-image-to-circle">
+            <p id ="landmarkname1" class="landmark_text1" width="23%" style="display:none, border-style: none;"></p>
+          </td>
+          <td width="23%" style="border-style: none;">
+            <img src="image/landmark/ginkakuji1.jpg" id="landmark2" width="20%" alt="" class="trim-image-to-circle">
+           <p id ="landmarkname2" class="landmark_text2" width="23%" style="display:none, border-style: none;"></p>
+          </td>
+          <td width="23%" style="border-style: none;">
+            <img src="image/landmark/ginkakuji1.jpg" id="landmark3" width="20%" alt="" class="trim-image-to-circle">
+           <p id ="landmarkname3" class="landmark_text3" width="23%" style="display:none, border-style: none;"></p>
+          </td>
+          <td width="23%" style="border-style: none;">
+            <img src="image/landmark/ginkakuji1.jpg" id="landmark4" width="20%" alt="" class="trim-image-to-circle">
+           <p id ="landmarkname4" class="landmark_text4" width="23%" style="display:none, border-style: none;"></p>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+
+    <div class="image-area2"> 
+
+        <a href="javascript:void(0):" id="hihyouji1" onClick="siborikomi(1);return false;">
+          <button type="button" id="localize1" class="btn btn-secondary btn-sm">無料時間あり</button></a>
+        <a href="javascript:void(0):" id="hihyouji2" onClick="siborikomi(2);return false;">
+          <button type="button" id="localize2" class="btn btn-secondary btn-sm">駐輪場のみ</button></a>
+        <a href="javascript:void(0):" id="hihyouji3" onClick="siborikomi(3);return false;">
+          <button type="button" id="localize3" class="btn btn-secondary btn-sm">レンタサイクルのみ</button></a>
+
+        <p id="hihyouji4" class="text" style="display:none;"></p>
+
+        <a href="javascript:void(0):" id="hihyouji5" onClick="siborikomi(0);return false;" style="display:none;">
+          <button type="button" id="localize4" class="btn btn-secondary btn-sm">全表示に戻る</button></a>
+
+    </div>
+
+    <form id="myform2" name="myform2" class="openedexpander" multiple="multiple">
+
+      <div id="facility1" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check1" name="q1" value="トイレ"><div id="localize5" class="nowrap">トイレ</div></label></div>
+      <div id="facility2" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check2" name="q2" value="観光見もの情報"><div id="localize6" class="nowrap">観光見もの情報</div></label></div>
+      <div id="facility3" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check3" name="q3" value="バス"><div id="localize7" class="nowrap">バス停</div></label></div>
+      <div id="facility4" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check4" name="q4" value="京都市施設"><div id="localize8" class="nowrap">京都市施設</div></label></div>
+      <div id="facility5" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check5" name="q5" value="自転車ショップ"><div id="localize9" class="nowrap">自転車ショップ</div></label></div>
+      <div id="facility6" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check6" name="q6" value="地下鉄"><div id="localize10" class="nowrap">地下鉄</div></label></div>  
+      <div id="facility7" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check7" name="q7" value="いしぶみ"><div id="localize11" class="nowrap">いしぶみ</div></label></div>
+
+      <div id="facility8" class="nowrap" style="display:none;">
+        <label class="check_css"><input type="checkbox" id="check8" name="q8" value="宿泊施設"><div id="localize12" class="nowrap">宿泊施設</div></label></div>
+      <div id="facility9" class="nowrap" style="display:none;">
+        <label class="check_css"><input type="checkbox" id="check9" name="q9" value="AED"><div id="localize13" class="nowrap">AED</div></label></div>
+      <div id="facility10" class="nowrap" style="display:none;">
+        <label class="check_css"><input type="checkbox" id="check10" name="q10" value="レストラン"><div id="localize14" class="nowrap">レストラン</div></label></div>
+      <div id="facility11" class="nowrap" style="display:none;">
+        <label class="check_css"><input type="checkbox" id="check11" name="q11" value="コンビニ"><div id="localize15" class="nowrap">コンビニ</div></label></div>
+      <div id="facility12" class="nowrap" style="display:none;">
+        <label class="check_css"><input type="checkbox" id="check12" name="q12" value="交番"><div id="localize16" class="nowrap">交番</div></label></div>  
+
+
+      <a href="javascript:void(0):" id="next" onClick="open_close('image_id01');return false;">
+      <img src="image/next.jpg" alt="" id="image_id01"></a>
+
+      <input type="button" class="btn btn-sm btn-outline-secondary" name="表示" value="表示" id="localize23"  onClick="recomend();">
+    </form>
+
+    <p class="radio">ズームレベル
+
+      <input type="radio" name="radio" value="12" onChange="zoomIn(12)">
+      <input type="radio" name="radio" value="13" onChange="zoomIn(13)">
+      <input type="radio" name="radio" value="14" onChange="zoomIn(14)">
+      <input type="radio" name="radio" value="15" onChange="zoomIn(15)">
+      <input type="radio" name="radio" value="16" onChange="zoomIn(16)">
+      <input type="radio" name="radio" value="17" onChange="zoomIn(17)">
+      <input type="radio" name="radio" value="18" onChange="zoomIn(18)">
+      <input type="radio" name="radio" value="19" onChange="zoomIn(19)">
+      <input type="radio" name="radio" value="20" onChange="zoomIn(20)">
+
+    </p>
+
+    <div id="main-left">
+      <div id="map_canvas"></div>
+
+    </div>
+
+    <!-- ここはgoogle アナリティクスのトラッキングコードです -->
+    <script src="js/analytics.js"></script>
+    <!-- ここはgoogle アナリティクスのトラッキングコードです -->
+
+    <div id="main-right">
+      <div id="loading">
+        <img src="image/icon_loader_01.gif" width="120" height="120" alt="Now Loading..." />
+        <p>Now Loading...</p>
+      </div>
+      <section class="modal-window" id="modal-p01" class="modal-inner">
+        <a href="#!" class="modal-close">&times;</a>
+      </section>
+    </div>
+
+    <div class="container fixed-bottom justify-content-center">
+      <div class="row">
+        <div class="col-md-12" style="text-align:center">
+        <!-- もしくは、div class="col-md-12 text-center" -->
+          <a href="#"  onclick="reload()" >
+            <img alt="現在地で検索" src="image/Group 2.png" width="130" height="65" />
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

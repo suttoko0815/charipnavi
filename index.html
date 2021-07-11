@@ -1,0 +1,220 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no">
+   
+
+    <!-- begin meta -->
+    <meta name="description" content="京都市の駐輪場検索アプリ chariP naViです。現在地周辺や指定した場所の、駐輪場情報、レンタサイクル情報、観光施設情報などを地図上に表示します。" />
+    <meta name="keywords" content="charip navi,charipnavi,charip,navi,京都市,京都,自転車,駐輪場,オープンデータ,オープンガバナンス,cog" />
+
+    <meta property="og:title" content="chariP naVi" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bicycle.rakusaba.jp" />
+    <meta property="og:site_name" content="chariP naVi" />
+    <!-- <meta property="og:image" content="" /> -->
+    <meta property="og:description" content="現在地周辺や指定した場所の、駐輪場情報、レンタサイクル情報、観光施設情報などを地図上に表示します。" />
+    <!-- end meta -->
+
+    <title>chariP naVi</title>
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+
+    <script type="text/javascript">
+      var ua, isIE, array, version;
+      // UserAgetn を小文字に正規化
+      ua = window.navigator.userAgent.toLowerCase();
+      var userAgent = window.navigator.userAgent.toLowerCase();
+      if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1)
+          || navigator.userAgent.indexOf('iPod') > 0
+          || navigator.userAgent.indexOf('Android') > 0) {
+        document.write('<link rel="stylesheet" type="text/css" href="css/style_sp.css">');
+      }else if(userAgent.indexOf('msie') != -1 || ua.indexOf('trident') >= 0){
+        document.write('<link rel="stylesheet" type="text/css" href="css/style.css">');
+      }else {
+        document.write('<link rel="stylesheet" type="text/css" href="css/style.css">');
+      }
+    </script>
+
+
+    <script src="https://maps.google.com/maps/api/js?v=3.exp&key=★ここにAPIキーを設定★&sensor=false"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.meanmenu.js"></script>
+    <script src="js/CycleNavi.js"></script>
+
+    <meta name="google-site-verification" content="VocCBujmHFancWpG2CCskNjuRFjEvbZUqVab2wmFoGQ" />
+
+  </head>
+
+  <body>
+    <!-- ヘッダ -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" >
+      <a class="navbar-brand" href="#"><img alt="ブランド" id="header-logo" src="image/titlelogo.png"></a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="Navber">
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item"><a class="nav-link" href="https://kyoto-bicycle.com/rulemanner" target="_blank" id="localize18">走行ルール・マナー(京都市サイト)</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://kanko.city.kyoto.lg.jp/bicycle" target="_blank" id="localize31">京都よくばり自転車観光ナビ(京都市サイト)</a></li>
+          <li class="nav-item"><a class="nav-link" href="http://kanko.city.kyoto.lg.jp/bicycle/use/manner/img/bicycle_parking_map.pdf" target="_blank" id="localize19">走行禁止区域(京都市サイト)(PCのみ)</a></li>
+        </ul>
+      </div>
+    </nav>
+	  
+
+	  
+	<!-- 折り畳み展開ポインタ -->
+	<div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';"  class="accordion">
+	  <a style="cursor:pointer;">▼検索画面を表示・非表示</a>
+     <!-- <input type='submit'  class="btn btn-sm btn-outline-secondary" value='▽検索画面を表示・非表示'>-->
+	</div>
+ 
+	<!-- 折り畳み部分 開始-->
+	<div id="open" style="display:none;clear:both;">
+
+    <!-- 言語切替 -->
+    <div id="localize-area">
+      <a href="javascript:void(0):" id="hihyouji11" onClick="localize('日本語');return false;">
+        <button type="button" class="btn btn-localize btn-sm">日本語</button></a>
+
+      <a href="javascript:void(0):" id="hihyouji11" onClick="localize('英語');return false;">
+        <button type="button" class="btn btn-localize btn-sm">English</button></a>
+ 
+      <a href="javascript:void(0):" id="hihyouji11" onClick="localize('中国語');return false;">
+        <button type="button" class="btn btn-localize btn-sm">中国語</button></a>
+    </div>
+
+    <!-- 観光地の検索 -->
+    <div id="search_place">
+      <form action="#" class="form-inline" onsubmit="getLatLng(document.getElementById('address').value); return(false);">
+        <input type='text' id='address' class="form-control" placeholder="地名または観光地を入力"
+          onfocus="if(this.value==this.defaultValue){this.value=''}"
+          onblur="if(this.value==''){this.value=this.defaultValue}" />
+        <input type='submit'  id='btn1' class="btn btn-sm btn-outline-secondary" value='検索'></form>
+    </div>
+
+
+    <!-- ランドマークの表示 -->
+    <div id="landmark-area">
+      <table>
+        <tr>
+          <td>
+            <img src="image/landmark/ginkakuji1.jpg" id="landmark1" alt="" class="landmark_image">
+          </td>
+          <td>
+            <img src="image/landmark/ginkakuji1.jpg" id="landmark2" alt="" class="landmark_image">
+          </td>
+          <td>
+            <img src="image/landmark/ginkakuji1.jpg" id="landmark3" alt="" class="landmark_image">
+          </td>
+          <td>
+            <img src="image/landmark/ginkakuji1.jpg" id="landmark4" alt="" class="landmark_image">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p id ="landmarkname1" class="landmark_text"></p>
+          </td>
+          <td>
+           <p id ="landmarkname2" class="landmark_text"></p>
+          </td>
+          <td>
+           <p id ="landmarkname3" class="landmark_text"></p>
+          </td>
+          <td>
+           <p id ="landmarkname4" class="landmark_text"></p>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 駐輪場の表示条件の絞り込み -->
+    <div class="dispFilter"> 
+        <a href="javascript:void(0):" id="hihyouji1" onClick="siborikomi(1);return false;">
+          <button type="button" id="localize1" class="btn btn-secondary btn-sm">無料時間あり</button></a>
+        <a href="javascript:void(0):" id="hihyouji2" onClick="siborikomi(2);return false;">
+          <button type="button" id="localize2" class="btn btn-secondary btn-sm">駐輪場のみ</button></a>
+        <a href="javascript:void(0):" id="hihyouji3" onClick="siborikomi(3);return false;">
+          <button type="button" id="localize3" class="btn btn-secondary btn-sm">レンタサイクルのみ</button></a>
+        <!-- 絞り込んだ条件を表示 -->
+        <div id="hihyouji4" class="text"></div>
+
+        <a href="javascript:void(0):" id="hihyouji5" onClick="siborikomi(0);return false;">
+          <button type="button" id="localize4" class="btn btn-secondary btn-sm">全表示に戻る</button></a>
+    </div>
+
+    <!-- オプション表示 -->
+    <form id="Option" name="Option" multiple="multiple">
+
+      <div id="facility1" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check1" name="q1" value="トイレ"><div id="localize5" class="nowrap">トイレ</div></label></div>
+      <div id="facility2" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check2" name="q2" value="観光情報"><div id="localize6" class="nowrap">観光情報</div></label></div>
+      <div id="facility3" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check3" name="q3" value="バス"><div id="localize7" class="nowrap">バス停</div></label></div>
+      <div id="facility4" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check4" name="q4" value="京都市施設"><div id="localize8" class="nowrap">京都市施設</div></label></div>
+      <div id="facility5" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check5" name="q5" value="自転車ショップ"><div id="localize9" class="nowrap">自転車ショップ</div></label></div>
+      <div id="facility6" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check6" name="q6" value="地下鉄"><div id="localize10" class="nowrap">地下鉄</div></label></div>  
+      <div id="facility7" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check7" name="q7" value="宿泊施設"><div id="localize12" class="nowrap">宿泊施設</div></label></div>
+      <div id="facility8" class="nowrap">
+        <label class="check_css"><input type="checkbox" id="check8" name="q8" value="AED"><div id="localize13" class="nowrap">AED</div></label></div>
+      <input type="button" class="btn btn-sm btn-outline-secondary" name="表示" value="表示" id="localize23"  onClick="recomend();">
+    </form>
+		
+	</div>
+	<!-- 折り畳み部分 終了-->
+	  
+
+	  
+<!--     <p class="radio" id="localize24" class="nowrap">ズーム小
+    </p>
+      <input type="radio" name="radio" value="12" onChange="zoomIn(12)">
+      <input type="radio" name="radio" value="13" onChange="zoomIn(13)">
+      <input type="radio" name="radio" value="14" onChange="zoomIn(14)">
+      <input type="radio" name="radio" value="15" onChange="zoomIn(15)">
+      <input type="radio" name="radio" value="16" onChange="zoomIn(16)">
+      <input type="radio" name="radio" value="17" onChange="zoomIn(17)">
+      <input type="radio" name="radio" value="18" onChange="zoomIn(18)">
+      <input type="radio" name="radio" value="19" onChange="zoomIn(19)">
+      <input type="radio" name="radio" value="20" onChange="zoomIn(20)">
+    <p class="radio2" class="nowrap">大
+    </p> -->
+
+
+    <div id="main-left">
+      <div id="map_canvas"></div>		
+    </div>
+
+    <!-- ここはgoogle アナリティクスのトラッキングコードです -->
+    <script src="js/analytics.js"></script>
+    <!-- ここはgoogle アナリティクスのトラッキングコードです -->
+
+    <div id="main-right">
+      <div id="loading">
+        <img src="image/icon_loader_01.gif" width="120" height="120" alt="Now Loading..." />
+        <p>Now Loading...</p>
+      </div>
+      <section class="modal-window" id="modal-p01" class="modal-inner">
+        <a href="#!" class="modal-close">&times;</a>
+      </section>
+      <section class="modal-window" id="modal-p02" class="modal-inner">
+        <a href="#!" class="modal-close">&times;</a>
+      </section>
+    </div>
+
+    <div class="container fixed-bottom justify-content-center">
+      <a href="#"  onclick="reload()" >
+        <img alt="現在地で検索" src="image/Group2.png"/>
+      </a>
+    </div>
+
+  </body>
+</html>

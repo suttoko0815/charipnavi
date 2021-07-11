@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+
+border-radius:5px;
+max-width: 750px; /* 最大幅 */
+max-height: 550px; /* 最大幅 */
+min-width: 240px; /* 最小幅 */
+min-height: 40px; /* 最小幅 */
+height:550px;
+overflow: hidden;
+margin: 13px;
+width:680px;
+height:650px;
+float:left; 
+
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+  #right {
+   max-width:600px; 
+    float:right; 
+   } 
+
+    </style>
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var map;
+      var infowindow;
+
+    var type =  'convenience_store'
+
+      function initMap() {
+        var pyrmont = {lat: 34.985849, lng: 135.758767};
+
+      check1 = document.myform.check1.checked;
+      check2 = document.myform.check2.checked;
+      check3 = document.myform.check3.checked;
+      check4 = document.myform.check4.checked;
+      check5 = document.myform.check5.checked;
+      check6 = document.myform.check6.checked;
+      check7 = document.myform.check7.checked;
+      check8 = document.myform.check8.checked;
+      check9 = document.myform.check9.checked;
+
+   if ( check1 == true){
+
+    type = document.myform.check1.value; 
+
+   } 
+
+
+   if ( check2 == true){
+
+    type = document.myform.check2.value; 
+
+   } 
+
+   if ( check3 == true){
+
+    type = document.myform.check3.value; 
+
+   } 
+
+   if ( check4 == true){
+
+    type = document.myform.check4.value; 
+
+   } 
+
+   if ( check5 == true){
+
+    type = document.myform.check5.value; 
+
+   } 
+
+   if ( check6 == true){
+
+    type = document.myform.check6.value; 
+
+   } 
+
+   if ( check7 == true){
+
+    type = document.myform.check7.value; 
+
+   } 
+
+   if ( check8 == true){
+
+    type = document.myform.check8.value; 
+
+   } 
+
+   if ( check9 == true){
+
+    type = document.myform.check9.value; 
+
+   } 
+
+   document.getElementById( "text-area" ).innerHTML = ""; 
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: pyrmont,
+          zoom: 15
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: pyrmont,
+          radius: 10000,
+          type: type
+        }, callback);
+      }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+
+          var wk_lat = place.geometry.location.lat();
+          var wk_lng = place.geometry.location.lng();
+
+
+          var wmeshcd = cal_meshcode6(wk_lat,wk_lng);
+
+
+  //     alert(wmeshcd); 
+
+
+
+
+        // HTMLへの書き出し
+        document.getElementById( "text-area" ).innerHTML += "世界メッシュコード," + wmeshcd +",名称," + place.name + ",緯度," + wk_lat + ",経度," + wk_lng + ",住所," + place.vicinity + "<br>";
+
+
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+
+
+function cal_meshcode6(latitude, longitude){
+
+    var mesh;
+    if(latitude < 0){
+          o = 4;
+    }
+    else{
+          o = 0;
+    }
+    if(longitude < 0){
+          o = o + 2;
+    }
+    if(Math.abs(longitude) >= 100) o = o + 1;
+    z = o % 2;
+    y = ((o-z)/2) % 2;
+    x = (o - 2*y - z)/4;
+    o = o + 1;
+    latitude = (1-2*x)*latitude;
+    longitude = (1-2*y)*longitude;
+    p = Math.floor(latitude*60/40);
+    a = (latitude*60/40-p)*40;
+    q = Math.floor(a/5);
+    b = (a/5-q)*5;
+    r = Math.floor(b*60/30);
+    c = (b*60/30-r)*30;
+    s2u = Math.floor(c/15);
+    d = (c/15-s2u)*15;
+    s4u = Math.floor(d/7.5);
+    e = (d/7.5-s4u)*7.5;
+    s8u = Math.floor(e/3.75);
+    u = Math.floor(longitude-100*z);
+    f = longitude-100*z-u;
+    v = Math.floor(f*60/7.5);
+    g = (f*60/7.5-v)*7.5;
+    w = Math.floor(g*60/45);
+    h = (g*60/45-w)*45;
+    s2l = Math.floor(h/22.5);
+    i = (h/22.5-s2l)*22.5;
+    s4l = Math.floor(i/11.25);
+    j = (i/11.25-s4l)*11.25;
+    s8l = Math.floor(j/5.625);
+    s2 = s2u*2+s2l+1;
+    s4 = s4u*2+s4l+1;
+    s8 = s8u*2+s8l+1;
+    if(u < 10){
+       if(p < 10){
+           mesh = String(o)+'00'+String(p)+'0'+String(u)+String(q)+String(v)+String(r)+String(w)+String(s2)+String(s4)+String(s8);
+       }else{
+           if(p < 100){
+               mesh = String(o)+'0'+String(p)+'0'+String(u)+String(q)+String(v)+String(r)+String(w)+String(s2)+String(s4)+String(s8);
+           }
+           else{
+               mesh = String(o)+String(p)+'0'+String(u)+String(q)+String(v)+String(r)+String(w)+String(s2)+String(s4)+String(s8);
+           }
+       }
+    }else{
+       if(p < 10){
+            mesh = String(o)+'00'+String(p)+String(u)+String(q)+String(v)+String(r)+String(w)+String(s2)+String(s4)+String(s8);
+       }else{
+           if(p < 100){
+                mesh = String(o)+'0'+String(p)+String(u)+String(q)+String(v)+String(r)+String(w)+String(s2)+String(s4)+String(s8);
+           }else{
+                mesh = String(o)+String(p)+String(u)+String(q)+String(v)+String(r)+String(w)+String(s2)+String(s4)+String(s8);
+           }
+       }
+    }
+
+    return(mesh.substr(0,10));
+
+}
+
+    </script>
+
+
+
+  </head>
+  <body>
+
+
+    <form id="myform" name="myform">
+
+      <label class="check_css"><input type="radio" id="check1" name="q" value='bicycle_store'>自転車店</label>
+      <label class="check_css"><input type="radio" id="check2" name="q" value='convenience_store'>コンビニ</label>
+      <label class="check_css"><input type="radio" id="check3" name="q" value='atm'>ATM</label>
+      <label class="check_css"><input type="radio" id="check4" name="q" value='restaurant'>レストラン</label>
+
+      <label class="check_css"><input type="radio" id="check5" name="q" value='cafe'>喫茶店</label>
+      <label class="check_css"><input type="radio" id="check6" name="q" value='place_of_worship'>お寺</label>
+      <label class="check_css"><input type="radio" id="check7" name="q" value='bus_station'>バス停</label>
+      <label class="check_css"><input type="radio" id="check8" name="q" value='post_box'>ポスト</label>
+      <label class="check_css"><input type="radio" id="check9" name="q" value='transit_station'>駅・停留所</label>
+
+      <input type="button" name="表示" value="表示"  onClick="initMap();return false;">
+    </form>
+
+
+
+    <div id="map"></div>
+<div id="right">
+ <div id="text-area">
+ </div> 
+
+</div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7pLturLce9Hn9MYhXBJ6F38lM-FuDT4s&libraries=places" async defer></script>
+  </body>
+</html>
